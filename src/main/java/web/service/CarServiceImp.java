@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class CarServiceImp implements CarService {
 
-    public List<Car> carList = new ArrayList<>();
+    private List<Car> carList = new ArrayList<>();
     {
         carList.add(new Car(1, "Lada", 2007));
         carList.add(new Car(2, "VW", 2016));
@@ -19,16 +19,15 @@ public class CarServiceImp implements CarService {
         carList.add(new Car(6, "Kia", 2024));
     }
 
-    public List<Car> index() {
-        return carList;
-    }
 
     @Override
     public List<Car> carsquantity(int num) {
         List<Car> firstNumCars;
         if (num < 5) {
             firstNumCars = carList.subList(0, num);
-        } else firstNumCars = carList;
+        } else {
+            firstNumCars = carList;
+        }
         return firstNumCars;
     }
 }
